@@ -45,23 +45,24 @@ def setup_browser(request):
         "browserVersion": browser_version,
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": False
         }
     }
     options.capabilities.update(selenoid_capabilities)
 
     remote_drv = os.getenv('REMOTE_DRV')
+
     driver = webdriver.Remote(
-        command_executor=f'{remote_drv}',
+        command_executor=f"{remote_drv}",
         options=options
     )
     browser.config.driver = driver
 
     yield browser
 
-    attach.add_html
-    attach.add_logs
-    attach.add_screenshot
-    attach.add_video
+    attach.add_html(browser)
+    attach.add_logs(browser)
+    attach.add_screenshot(browser)
+    attach.add_video(browser)
 
     browser.quit()
