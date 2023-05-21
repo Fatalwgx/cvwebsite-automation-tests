@@ -1,0 +1,17 @@
+version: "3.5"
+networks:
+  selenoid:
+      external: true
+      name: selenoid
+services:
+  dev:
+    build: .
+    container_name: dev
+    command: tail -F anything
+    ports:
+      - 81:81
+    volumes:
+      - .:/code
+    networks:
+      - selenoid
+    
