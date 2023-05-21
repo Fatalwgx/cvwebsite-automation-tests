@@ -8,4 +8,6 @@ def test_health_check(setup_browser):
     browser = setup_browser
     browser.open("")
 
-
+def test_test_two(setup_browser):
+    browser = setup_browser
+    browser.open("")
