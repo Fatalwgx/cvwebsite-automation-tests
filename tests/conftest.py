@@ -62,12 +62,10 @@ def setup_browser(request):
 
     yield browser
 
-    browser.quit()
-    
     time.sleep(5)
     attach.add_video(browser)
     attach.add_html(browser)
     attach.add_logs(browser)
     attach.add_screenshot(browser)
 
-    
+    browser.quit()
