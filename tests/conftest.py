@@ -1,5 +1,6 @@
 import os
 import pytest
+import time
 from selene.support.shared import browser
 
 from selenium import webdriver
@@ -61,6 +62,7 @@ def setup_browser(request):
 
     yield browser
 
+    time.sleep(5)
     attach.add_video(browser)
     attach.add_html(browser)
     attach.add_logs(browser)
