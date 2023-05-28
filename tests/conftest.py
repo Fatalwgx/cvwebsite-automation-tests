@@ -6,7 +6,7 @@ from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
-from lzavodskov.controls import attach
+from cvwebsite_tests.model.controls import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
