@@ -1,8 +1,10 @@
+
+from .base_page import BasePage
 from selene.support.shared import browser
 from selene import have, be
 
 
-class CvPage:
+class CvPage(BasePage):
     def __init__(self):
         self.cv_container = ...
 
@@ -11,9 +13,9 @@ class CvPage:
         return self
 
     def cv_is_present(self):
-        self.cv_container = browser.element('.rela-block .content-container')
+        self.cv_container = browser.element('.rela-block .content-container').should(be.visible)
         return self
 
-
+        
     
 
