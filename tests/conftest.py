@@ -19,7 +19,7 @@ def load_env():
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    app_url: str = os.getenv('LOCAL_URL')
+    app_url: str = os.getenv('WEB_URL')
     browser.config.base_url = os.getenv('selene.base_url', app_url)
     browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
     browser.config.hold_browser_open = (
