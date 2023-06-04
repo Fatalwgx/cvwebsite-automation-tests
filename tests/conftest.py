@@ -9,9 +9,18 @@ from dotenv import load_dotenv
 from cvwebsite_tests.model.controls import attach
 
 
+DEFAULT_BROWSER_VERSION = "112.0"
+
+
+@pytest.fixture(scope='session', autouse=True)
+def load_env():
+    load_dotenv()
+
+
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    browser.config.base_url = os.getenv('selene.base_url', 'http://api:80')
+    app_url: str = os.getenv('LOCAL_URL')
+    browser.config.base_url = os.getenv('selene.base_url', app_url)
     browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
     browser.config.hold_browser_open = (
         os.getenv('selene.hold_browser_open', 'false').lower() == 'true'
@@ -21,19 +30,11 @@ def browser_management():
     browser.config.window_height = 1080
 
 
-DEFAULT_BROWSER_VERSION = "112.0"
-
-
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
         default='112.0'
     )
-
-
-@pytest.fixture(scope='session', autouse=True)
-def load_env():
-    load_dotenv()
 
 
 @pytest.fixture(scope='function')
