@@ -14,3 +14,8 @@ class BasePage:
     def navbar_tab_present(self, tab_name: str):
         browser.element('//a[@href="/files/cv"]').should(have.text(tab_name))
         return self
+    
+    def go_to_slots_page(self):
+        browser.element('.dropbtn').hover()
+        browser.element('//a[text()="Slot Machine game"]').click()
+        return self
