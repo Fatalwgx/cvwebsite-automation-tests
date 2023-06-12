@@ -32,7 +32,7 @@ class User:
 
     def set_username(self, username: str = ''):
         if username is '':
-            self.username = fake.first_name().join(str(random.randint(0, 9999)))
+            self.username = fake.first_name() + str(random.randint(0, 9999))
         else: self.username = username
         return self
 
