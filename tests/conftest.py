@@ -46,7 +46,7 @@ def setup_session():
 
 
 @pytest.fixture(scope='function', autouse=False)
-def setup_browser(request, browser_management):
+def setup_browser(request, browser_management, load_env):
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()
@@ -71,7 +71,6 @@ def setup_browser(request, browser_management):
 
     yield browser
 
-    time.sleep(5)
     attach.add_video(browser)
     attach.add_html(browser)
     attach.add_logs(browser)
