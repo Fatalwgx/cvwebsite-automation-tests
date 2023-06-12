@@ -1,4 +1,5 @@
 from pydantic import BaseModel, validator
+from typing import Optional
 from datetime import datetime
 
 from src.enums.user_enums import UserErrors
@@ -26,3 +27,9 @@ class UserDataResponse(BaseModel):
 class LoginResponse(BaseModel):
     access_token: str
     token_type: str
+
+
+class UserUpdateResponse(BaseModel):
+    username: Optional[str] = None
+    password: Optional[str] = None
+    email: Optional[str] = None

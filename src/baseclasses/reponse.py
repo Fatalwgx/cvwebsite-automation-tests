@@ -21,6 +21,11 @@ class Response:
         else:
             assert self.response_status == status_code, self
         return self
+    
+    def validate_user(self, test_user):
+        assert self.response_json.get('username') == test_user.username
+        assert self.response_json.get('email') == test_user.email
+        assert self.response_json.get('id') == test_user.id
 
     def __str__(self):
         return (
