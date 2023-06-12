@@ -15,7 +15,7 @@ from selene.support.shared import browser
         "Software QA Engineer",
     ],
 )
-def test_pdf_attachments_present(header_name):
+def test_pdf_attachments_present(setup_browser, header_name):
     with allure.step("Openning File Attachments page"):
         app.file_page.open()
 

@@ -24,20 +24,20 @@ class User:
     def init_db(self):
         self.db: Session = next(get_db())
 
-    def set_password(self, password: str = ''):
-        if password is '':
+    def set_password(self, password: str = None):
+        if password is None:
             self.password = fake.password()
         else: self.password = password
         return self
 
-    def set_username(self, username: str = ''):
-        if username is '':
+    def set_username(self, username: str = None):
+        if username is None:
             self.username = fake.first_name() + str(random.randint(0, 9999))
         else: self.username = username
         return self
 
-    def set_email(self, email: str = ''):
-        if email is '':
+    def set_email(self, email: str = None):
+        if email is None:
             self.email = fake.email()
         else: self.email = email
         return self

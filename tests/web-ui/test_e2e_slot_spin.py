@@ -4,7 +4,7 @@ from cvwebsite_tests.model import app
 from selene.support.shared import browser
 
 
-def test_from_homepage_go_to_slots_and_spin_succesfully():
+def test_from_homepage_go_to_slots_and_spin_succesfully(setup_browser):
     with allure.step("Openning Home page"):
         app.cv_page.open()
 
