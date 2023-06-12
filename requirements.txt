@@ -5,4 +5,4 @@ python-dotenv==0.20.0
 pydantic
 faker
 sqlalchemy
-psycopg2
+psycopg2-binary
