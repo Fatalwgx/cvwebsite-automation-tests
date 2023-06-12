@@ -1,6 +1,8 @@
 .env
 __pycache__
 allure-results
+.vscode/
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

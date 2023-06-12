@@ -1,12 +1,14 @@
 import os
 import pytest
 import time
-from selene.support.shared import browser
 
+from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
+
 from cvwebsite_tests.model.controls import attach
+from src.baseclasses.base_session import api_session
 
 
 DEFAULT_BROWSER_VERSION = "112.0"
@@ -35,6 +37,12 @@ def pytest_addoption(parser):
         '--browser_version',
         default='112.0'
     )
+
+
+# API fixtures
+@pytest.fixture(scope="function")
+def setup_session():
+    return api_session()
 
 
 @pytest.fixture(scope='function', autouse=True)
